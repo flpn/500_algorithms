@@ -3,9 +3,18 @@
 # done in-place and without using any other data structure.
 
 
+# O(mn)
 def merge(array_x, array_y):
-    # TODO
-    pass
+    count = 0
+    while count < len(array_x):
+        if array_x[count] > array_y[0]:
+            array_x[count], array_y[0] = array_y[0], array_x[count]
+
+            for i in range(len(array_y) - 1):
+                if array_y[i] > array_y[i + 1]:
+                    array_y[i], array_y[i + 1] = array_y[i + 1], array_y[i]
+
+        count += 1
 
 
 x = [1, 4, 7, 8, 10]
